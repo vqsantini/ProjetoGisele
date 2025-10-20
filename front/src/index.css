@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Glitch&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik+Glitch&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bg-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./public/BgHome.svg') no-repeat center;
+  background-size: cover;
+}
+
+.bg-pesquisa {
+  background: url('./public/BgPesquisa.svg') no-repeat center;
+  background-size: cover;
+}
+
+.font-rubik-glitch {
+  font-family: 'Rubik Glitch', sans-serif;
+}
+
+.font-bebas-neue {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.radio input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  transition: 0.2s;
+}
+
+.radio input[type="radio"]:checked {
+  border-color: #4f46e5;
+}
+
+.radio input[type="radio"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s ease-in-out;
+  background-color: #4f46e5;
+}
+
+.radio input[type="radio"]:checked::before {
+  transform: scale(1);
+}
