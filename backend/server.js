@@ -17,12 +17,31 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 });
 
 app.post("/pesquisa", async (req, res) => {
-  const { faixa_etaria, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 } = req.body;
-  const newSearch = new Pesquisa({
-    faixa_etaria, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
-  });
-  await newSearch.save();
-  res.status(201).send(newSearch);
+  try {
+    const {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 } = req.body;
+
+    const newSearch = new Pesquisa({
+      p1: p1 || "",
+      p2: p2 || "",
+      p3: p3 || "",
+      p4: p4 || "",
+      p5: p5 || "",
+      p6: p6 || "",
+      p7: p7 || "",
+      p8: p8 || "",
+      p9: p9 || "",
+      p10: p10 || "",
+    });
+
+    await newSearch.save();
+    res.status(201).json({ message: "Pesquisa salva com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao salvar pesquisa:", error);
+    res.status(500).json({
+      message: "Erro interno ao salvar pesquisa",
+      error: error.message,
+    });
+  }
 });
 
 const PORT = process.env.PORT || 3000;

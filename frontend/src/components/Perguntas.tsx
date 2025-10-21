@@ -67,7 +67,7 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
     }
 
     try {
-      await axios.post("http://localhost:3000/pesquisa", {
+      await axios.post("https://backend-projetohomofobia.onrender.com/pesquisa", {
         p1: respostas[0] ?? "",
         p2: respostas[1] ?? "",
         p3: respostas[2] ?? "",
