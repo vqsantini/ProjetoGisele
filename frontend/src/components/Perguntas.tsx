@@ -69,7 +69,7 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
     }
 
     try {
-      await axios.post("http://localhost:3000/pesquisa", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/pesquisa`, {
         p1: respostas[0] ?? "",
         p2: respostas[1] ?? "",
         p3: respostas[2] ?? "",
@@ -83,7 +83,8 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
       });
 
       navigate("/finalizada");
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError("Ocorreu um erro ao enviar. Tente novamente.");
     }
   };

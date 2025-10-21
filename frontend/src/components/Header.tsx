@@ -4,7 +4,7 @@ export function Header() {
     return (
         <div className="flex w-screen justify-around max-md:justify-between items-center h-28 ">
             <div className="flex flex-1 justify-center md:basis-3/5 md:pl-20 md:justify-start">
-                <p className="text-white font-rubik-glitch text-3xl cursor-default max-lg:text-2xl">#HomofobiaÉCrime</p>
+                <Link to="/" className="text-white font-rubik-glitch text-3xl cursor-pointer max-lg:text-2xl">#HomofobiaÉCrime</Link>
             </div>
             <div className="text-white flex gap-14 font-bebas-neue text-2xl basis-2/5 justify-center items-center text-nowrap hidden md:flex md:gap-8">
                 <Link to='/'>INÍCIO</Link>
