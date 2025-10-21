@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const pesquisaSchema = new mongoose.Schema({
-  faixa_etaria: String,
   p1: String,
   p2: String,
   p3: String,
