@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
@@ -28,8 +28,6 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
     { q1: "Educação e conscientização", q2: "Conversas e diálogo aberto", q3: "Leis mais rigorosas", q4: "Outra" },
     { q1: "Sim", q2: "Não", q3: "Em parte" },
   ];
-
-  const navigate = useNavigate();
 
   const [index, setIndex] = useState(0);
   const [respostas, setRespostas] = useState<string[]>([]);
@@ -69,7 +67,7 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/pesquisa`, {
+      await axios.post("http://localhost:3000/pesquisa", {
         p1: respostas[0] ?? "",
         p2: respostas[1] ?? "",
         p3: respostas[2] ?? "",
@@ -81,17 +79,15 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
         p9: respostas[8] ?? "",
         p10: respostas[9] ?? "",
       });
-
-      navigate("/finalizada");
     } catch (err) {
-      console.error(err);
+      console.log(err);
       setError("Ocorreu um erro ao enviar. Tente novamente.");
     }
   };
 
   return (
     <div className="w-[850px] max-sm:w-[90%] border-white border-[2px] rounded-lg flex flex-col items-center p-10 sm:p-16 gap-6 text-white font-bebas-neue">
-      <div className="w-full flex flex-col gap-6">
+      <div className="w-full flex flex-col">
         <div className="flex justify-between text-lg max-sm:text-sm">
           <p>Etapa {index + 1} de {perguntas.length}</p>
           <p>{Math.round(progress)}%</p>
@@ -133,19 +129,15 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
         </button>
 
         {index < perguntas.length - 1 ? (
-          <button
-            className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded font-inter font-bold text-lg max-sm:text-base transition"
-            onClick={avancar}
-          >
+          <button className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded font-inter font-bold text-lg max-sm:text-base transition" onClick={avancar}>
             AVANÇAR
           </button>
         ) : (
-          <button
-            onClick={finalizar}
-            className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-inter font-bold text-lg max-sm:text-base transition"
-          >
-            FINALIZAR
-          </button>
+          <Link to="/finalizada" className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-inter font-bold text-lg max-sm:text-base transition">
+            <button onClick={finalizar}>
+              FINALIZAR
+            </button>
+          </Link>
         )}
       </div>
     </div>
