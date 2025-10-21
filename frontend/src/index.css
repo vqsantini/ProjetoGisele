@@ -8,12 +8,12 @@
 }
 
 .bg-home {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./public/BgHome.svg') no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../public/BgHome.svg') no-repeat center;
   background-size: cover;
 }
 
 .bg-pesquisa {
-  background: url('./public/BgPesquisa.svg') no-repeat center;
+  background: url('../public/BgPesquisa.svg') no-repeat center;
   background-size: cover;
 }
 
