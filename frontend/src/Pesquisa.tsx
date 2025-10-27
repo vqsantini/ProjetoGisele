@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Header } from "./components/Header";
-import { InfoUsuario } from "./components/InfoUsuário";
 import { Perguntas } from "./components/Perguntas";
 
 export function Pesquisa() {
-    const [step, setStep] = useState<"info" | "perguntas">("info");
 
     return (
         <div className="min-h-screen w-full overflow-x-hidden bg-black">
@@ -35,12 +32,7 @@ export function Pesquisa() {
 
                 <div className="flex justify-center items-center w-full h-[600px] max-sm:h-auto max-sm:pb-12">
                     <div className="w-full flex justify-center items-center px-6">
-                        {step === "info" && (
-                            <InfoUsuario onAvancar={() => setStep("perguntas")} />
-                        )}
-                        {step === "perguntas" && (
-                            <Perguntas onVoltar={() => setStep("info")} />
-                        )}
+                        <Perguntas />
                     </div>
                 </div>
 

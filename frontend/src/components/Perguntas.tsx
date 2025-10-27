@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
+export function Perguntas() {
   const perguntas = [
     "Você acredita que a homofobia ainda é um problema sério na sociedade hoje?",
     "Você já presenciou ou soube de algum caso de homofobia em sua escola, trabalho ou comunidade?",
@@ -55,8 +55,6 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
   const voltar = () => {
     if (index > 0) {
       setIndex((prev) => prev - 1);
-    } else {
-      onVoltar();
     }
   };
 
@@ -123,7 +121,7 @@ export function Perguntas({ onVoltar }: { onVoltar: () => void }) {
       <div className="flex w-full justify-between pt-8 flex-wrap gap-4">
         <button
           className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-inter font-bold text-lg max-sm:text-base transition"
-          onClick={voltar}
+          onClick={voltar} disabled={index === 0}
         >
           VOLTAR
         </button>
