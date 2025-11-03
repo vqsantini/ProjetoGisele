@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { Header } from "./components/Header";
+import { Header } from "../components/Header";
 
 export function Home() {
     return (
         <div className="min-h-screen w-full overflow-x-hidden bg-black">
             <div className="min-h-screen w-screen bg-home">
-                <Header />
+                <Header map="home"/>
                 <div className="w-full overflow-x-hidden">
                     <div className="flex flex-col justify-between gap-16 h-[calc(100vh-192px)] mt-20 max-sm:mt-0 max-sm:gap-12 max-sm:px-6">
                         <div className="flex flex-col items-start px-20 gap-6 text-white max-w-[720px] max-sm:max-w-full max-sm:px-4">

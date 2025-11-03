@@ -104,7 +104,7 @@ export function Perguntas() {
         {Object.entries(alternativas[index]).map(([key, value]) => (
           <label
             key={key}
-            className="flex items-center gap-3 text-2xl max-sm:text-base text-[#B5B5B5]"
+            className={`flex items-center gap-3 text-[1.25rem] max-sm:text-base text-[#B5B5B5] option-label ${respostas[index] === value ? 'active' : ''}`}
           >
             <input
               type="radio"
@@ -112,7 +112,6 @@ export function Perguntas() {
               name={`pergunta-${index}`}
               checked={respostas[index] === value}
               onChange={() => handleChange(value)}
-              className="accent-green-600"
             />
             {value}
           </label>

@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home } from "./Home";
-import { Pesquisa } from "./Pesquisa";
-import { PesquisaFinalizada } from "./PesquisaFinalizada";
+import { Home } from "./pages/Home";
+import { Pesquisa } from "./pages/Pesquisa";
+import { PesquisaFinalizada } from "./pages/PesquisaFinalizada";
+import { Dados } from "./pages/Dados";
 
 
 export const router = createBrowserRouter([{
@@ -14,5 +15,8 @@ export const router = createBrowserRouter([{
 },{
   path: '/finalizada',
   element: <PesquisaFinalizada />
+}, {
+  path: '/estatistica',
+  element: <Dados />
 }
 ]);

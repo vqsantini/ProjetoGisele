@@ -64,3 +64,33 @@
 .radio input[type="radio"]:checked::before {
   transform: scale(1);
 }
+
+.option-label {
+  border: 1px solid var(--border-color);
+  padding: 14px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-speed);
+  display: flex;
+  align-items: center;
+}
+.option-label:hover {
+  border-color: var(--accent-color);
+  background: rgba(45, 104, 50, 0.2);
+}
+.option-label.active {
+  border-color: var(--accent-color);
+  background: rgba(52, 233, 67, 0.2);
+}
+
+.option-label input[type="radio"] {
+  display: none;
+}
+
+.map-active {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid #585858;
+  padding: 5px 22px;
+  border-radius: 9px;
+  
+}
